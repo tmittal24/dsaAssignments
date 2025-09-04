@@ -1,3 +1,35 @@
+#include <iostream>
+using namespace std;
+
+struct stack {
+    int arr[100];
+    int top;
+    int size;
+
+    stack() {
+        top = -1;
+        size = sizeof(arr) / sizeof(arr[0]);
+    }
+
+    bool isFull() {
+        return top == size - 1;
+    }
+
+    bool isEmpty() {
+        return top == -1;
+    }
+
+    int topElement() {
+        if (isEmpty()) return -1;
+        return arr[top];
+    }
+
+    void push(int x) {
+        if (!isFull()) {
+            arr[++top] = x;
+        }
+    }
+
     void pop() {
         if (!isEmpty()) {
             --top;
